@@ -1,0 +1,9 @@
+- $loop = new WP_Query( array( 'post_type' => 'press', 'posts_per_page' => 10 ) )
+
+#content
+  .wrap.clearfix#inner-content
+    .eightcol.first.clearfix#main{:role => "main"}
+      %ul.news
+        - while ($loop->have_posts())
+          - $loop->the_post()
+          %li= render_partial("posts/news")

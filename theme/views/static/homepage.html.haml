@@ -1,0 +1,7 @@
+#content
+  .wrap.clearfix#inner-content
+    .eightcol.first.clearfix#main{:role => "main"}
+      .homepage-image= link_to(image_tag("homepage_main_image.jpg"), get_page_link(4))
+        %h1= link_to(get_bloginfo('name'), get_page_link(4))
+      .enter-homepage
+        =link_to("&laquo; Enter Site &raquo;", get_page_link(4))

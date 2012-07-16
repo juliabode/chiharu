@@ -1,0 +1,9 @@
+!!! 5
+%html(html_attrs())
+  %head= render_partial("layouts/head")
+  %body
+    .page-wrapper
+      %section.home-content= yield()
+      %footer.site-footer= render_partial("layouts/footer")
+      = javascript_include_tag("http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js")
+      = javascript_include_tag("application")

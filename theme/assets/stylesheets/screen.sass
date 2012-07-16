@@ -1,0 +1,45 @@
+@import "compass"
+@import "helper"
+
++global-reset
+
+body
+  background: image-url("bg.png")
+
+a
+  text-decoration: none
+  color: #C3C3C3
+  &:hover
+    color: #FF3366
+
+p
+  margin: 10px 0
+
+img
+  margin: 20px 0
+
+.page-wrapper
+  width: 940px
+  margin: 0 auto
+  font-family: "Helvetica", "Arial", sans-serif
+  font-size: 13px
+  color: #929292
+
+  @import "site_header"
+
+  @import "site_navigation"
+
+  @import "site_sidebar"
+
+  section.site-content
+    padding-top: 20px
+
+    @import "post"
+
+    @import "page_templates"
+
+  section.home-content
+
+    @import "homepage"
+
+

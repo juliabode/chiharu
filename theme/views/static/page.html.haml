@@ -1,0 +1,7 @@
+#content
+  .wrap.clearfix#inner-content
+    .eightcol.first.clearfix#main{:role => "main"}
+      - while (have_posts())
+        - the_post()
+          %h1.page-title= the_title()
+          %section.post-content.clearfix= the_content()

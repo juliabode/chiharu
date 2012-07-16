@@ -1,0 +1,11 @@
+- preg_match( "/template-(.*)\.php/", get_post_meta( get_the_ID(), '_wp_page_template', TRUE ), $post_type )
+- $loop = new WP_Query( array( 'post_type' => $post_type[1], 'posts_per_page' => 1 ) )
+
+#content
+  .wrap.clearfix#inner-content
+    .sidebar= render_partial( "layouts/sidebar_" . $post_type[1] )
+    .eightcol.first.clearfix#main{:role => "main", :class => "#{$post_type[1]}"}
+      %ul
+        - while ($loop->have_posts())
+          - $loop->the_post()
+          %li= render_partial( "posts/" . $post_type[1] )
