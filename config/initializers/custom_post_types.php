@@ -19,7 +19,11 @@ function add_custom_taxonomies() {
    * function, or the Wordless new_taxonomy() helper.
    */
 
-   new_taxonomy("year", array('news', 'works'));
+   new_taxonomy("year_news", array('news'));
+   new_taxonomy("year_works", array('works'));
+   new_taxonomy("biography_steps", array('biography'));
+   new_taxonomy("press_type", array('press'));
+   new_taxonomy("year_publications", array('publication'));
 }
 
 add_action('init', 'add_custom_post_types');

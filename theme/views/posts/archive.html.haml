@@ -1,7 +1,18 @@
-%h2 Archive
-%ul.archive
-  - while (have_posts())
-    - the_post()
-    %li= render_partial("posts/post")
-
-
+- if ( is_tax('year_news') )
+  - $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) )
+  - $loop = new WP_Query( array( 'tax_query' => array( array( 'taxonomy' => 'year_news', 'terms' => $term->term_id ) ), 'post_type' => 'news', 'posts_per_page' => -1,  ) )
+  #content
+    .wrap.clearfix#inner-content
+      .sidebar-news.clearfix= render_partial( "layouts/sidebar_news" )
+      .eightcol.first.clearfix#main{:role => "main", :class => "news"}
+        %ul
+          - while ($loop->have_posts())
+            - $loop->the_post()
+            %li= render_partial( "posts/news" )
+        - wp_reset_query()
+- else
+  %h2 Archives
+    %ul.archive
+      - while (have_posts())
+        - the_post()
+        %li= render_partial("posts/post")

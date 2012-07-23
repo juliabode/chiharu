@@ -6,6 +6,9 @@
 body
   background: image-url("bg.png")
 
+li
+  list-style: none
+
 a
   text-decoration: none
   color: #C3C3C3
@@ -14,13 +17,24 @@ a
 
 p
   margin: 10px 0
+  line-height: 18px
+  font-size: 14px
+
+strong
+  font-weight: bold
+
+italic
+  font-style: italic
 
 img
   margin: 20px 0
 
+.clearfix
+  overflow: hidden
+
 .page-wrapper
   width: 940px
-  margin: 0 auto
+  margin: 0 auto -80px
   font-family: "Helvetica", "Arial", sans-serif
   font-size: 13px
   color: #929292
@@ -38,8 +52,12 @@ img
 
     @import "page_templates"
 
+    @import "page"
+
   section.home-content
 
     @import "homepage"
+
+@import "footer"
 
 

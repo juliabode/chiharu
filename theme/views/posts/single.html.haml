@@ -1,6 +1,12 @@
-%h2 Post Details
-- the_post()
-= render_partial("posts/post")
+- if ('works' == get_post_type())
+  .wrap.clearfix#inner-content
+    .sidebar-works= render_partial( "layouts/sidebar_works" )
+    .eightcol.first.clearfix#main{:role => "main", :class => "works"}
+      %post= render_partial( "posts/works" )
+- else
+  %h2 Post Details
+  - the_post()
+  = render_partial("posts/post")
 
 
 

@@ -1,4 +1,4 @@
-.news, .works
+.news, .works, .biography
   float: left
   width: 760px
 
@@ -6,12 +6,73 @@
     display: inline-block
     width: 100%
 
-.news
+.news, .biography
+  width: 940px
+  font-size: 13px
+
   li
     header
       float: left
       width: 20%
+      margin: 10px 0
 
     .content
       float: right
       width: 80%
+
+.works
+  h3
+    @include pink_title
+    margin-top: 0
+
+.biography
+  .biography-category
+    padding-bottom: 20px
+    border-bottom: 1px solid #333
+    &:last-child
+      border: none
+
+    h2
+      @include pink_title
+
+    header
+      width: 10%
+
+    .content
+      width: 90%
+
+.press
+  li
+    border-bottom: 1px solid #333
+    margin-bottom: 40px
+    &:last-child
+      border: none
+
+    h2
+      @include pink_title
+
+.publication
+  .publication-year
+    border-bottom: 1px solid #333
+    margin-bottom: 40px
+    &:last-child
+      border: none
+
+    .year-box
+      float: left
+      width: 10%
+      h3
+        font-size: 14px
+
+    .post-box
+      float: left
+      width: 90%
+
+      li
+        border-bottom: 1px solid #333
+        margin-bottom: 40px
+        &:last-child
+          border: none
+        h2
+          @include pink_title
+          margin-top: 0

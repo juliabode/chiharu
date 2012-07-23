@@ -11,3 +11,12 @@
       a
         color: #A7003C
         text-decoration: none
+
+  a
+    img
+      @include image_border(5px)
+    &.pdf
+      background: image-url('pdficon_large.png') no-repeat
+      width: 32px
+      height: 32px
+      display: block

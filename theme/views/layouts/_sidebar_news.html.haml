@@ -1,12 +1,14 @@
-- $categories = get_terms( 'year' )
+- $categories = get_terms( 'year_news', array( 'order' => 'DESC' ) )
 
 %ul
+  - $i = 0
   - foreach ( $categories as $cat )
-    %li
-      %h2= $cat->name
-      %ul
-        - $cat_id= $cat->term_id
-        - $query= new WP_Query( array('tax_query' => array( array( 'taxonomy' => 'year', 'terms' => $cat_id ) ), 'post_type' => 'works', 'sort' => 'ASC') )
-        - while ($query->have_posts())
-          - $query->the_post()
-            %li= link_to(get_the_title(), get_permalink())
+    - #todo: better if clause.
+    - if ( ($i == 0 && is_page('news')) || is_tax('year_news', $cat->slug) )
+      - $class = 'active'
+    - else
+      - $class = 'inactive'
+    %li{:class => "#{$class}"}
+      %h2= link_to($cat->name, get_term_link($cat->slug, 'year_news'))
+      - $i++
+  %li.fill= "&nbsp;"

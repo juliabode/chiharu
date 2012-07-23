@@ -1,9 +1,18 @@
-- $loop = new WP_Query( array( 'post_type' => 'publication', 'posts_per_page' => 10 ) )
+- $categories = get_terms( 'year_publications', array( 'order' => 'DESC' ) )
 
 #content
   .wrap.clearfix#inner-content
     .eightcol.first.clearfix#main{:role => "main"}
-      %ul.news
-        - while ($loop->have_posts())
-          - $loop->the_post()
-          %li= render_partial("posts/news")
+      .publication
+        - foreach ( $categories as $cat )
+          .publication-year.clearfix
+            .year-box
+              %h3= $cat->name
+            - $cat_id= $cat->term_id
+            - $loop= new WP_Query( array('tax_query' => array( array( 'taxonomy' => 'year_publications', 'terms' => $cat_id ) ), 'post_type' => 'publication', 'order' => 'ASC') )
+            .post-box
+              %ul
+                - while ($loop->have_posts())
+                  - $loop->the_post()
+                  %li= render_partial("posts/press")
+

@@ -25,8 +25,6 @@ if (is_home()) {
   render_view("static/homepage", "home");
 } else if (is_page()) {
   render_view("static/page");
-} else if (is_singular('works')) {
-  render_view("posts/single");
 }else if (is_single()) {
   render_view("posts/single");
 } else {

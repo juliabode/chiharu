@@ -3,4 +3,4 @@
     Template Name: Press
 */
 
-render_view("static/press"); ?>
+render_view("static/page_templates"); ?>

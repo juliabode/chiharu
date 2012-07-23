@@ -1,11 +1,20 @@
 - preg_match( "/template-(.*)\.php/", get_post_meta( get_the_ID(), '_wp_page_template', TRUE ), $post_type )
-- $loop = new WP_Query( array( 'post_type' => $post_type[1], 'posts_per_page' => 1 ) )
+
+- if ($post_type[1] == 'news')
+  - $categories = get_terms( 'year_news', array( 'order' => 'DESC' ) )
+  - $loop = new WP_Query( array(  'tax_query' => array( array( 'taxonomy' => 'year_news', 'terms' => $categories[0]->term_id ) ), 'post_type' => $post_type[1], 'posts_per_page' => -1 ) )
+- else if ($post_type[1] == 'press')
+  - $loop = new WP_Query( array( 'post_type' => $post_type[1], 'posts_per_page' => -1 ) )
+- else
+  - $loop = new WP_Query( array( 'post_type' => $post_type[1], 'posts_per_page' => 1 ) )
 
 #content
   .wrap.clearfix#inner-content
-    .sidebar= render_partial( "layouts/sidebar_" . $post_type[1] )
+    .sidebar-#{$post_type[1]}.clearfix= render_partial( "layouts/sidebar_" . $post_type[1] )
     .eightcol.first.clearfix#main{:role => "main", :class => "#{$post_type[1]}"}
       %ul
         - while ($loop->have_posts())
           - $loop->the_post()
           %li= render_partial( "posts/" . $post_type[1] )
+
+- wp_reset_query()

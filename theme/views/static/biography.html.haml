@@ -1,9 +1,16 @@
-- $loop = new WP_Query( array( 'post_type' => 'biography', 'posts_per_page' => 10 ) )
+- $categories = get_terms( 'biography_steps', array( 'order' => 'DESC' ) )
 
 #content
   .wrap.clearfix#inner-content
     .eightcol.first.clearfix#main{:role => "main"}
-      %ul.news
-        - while ($loop->have_posts())
-          - $loop->the_post()
-          %li= render_partial("posts/news")
+      .biography
+        - foreach ( $categories as $cat )
+          %div.biography-category.clearfix
+            - if ($cat->name != 'Uncategorized')
+              %h2= $cat->name
+            - $cat_id= $cat->term_id
+            - $loop= new WP_Query( array('tax_query' => array( array( 'taxonomy' => 'biography_steps', 'terms' => $cat_id ) ), 'post_type' => 'biography', 'order' => 'ASC') )
+            %ul
+              - while ($loop->have_posts())
+                - $loop->the_post()
+                %li= render_partial("posts/news")

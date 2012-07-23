@@ -1,7 +1,36 @@
-.sidebar
+.sidebar-works
+  font-size: 14px
   float: left
   width: 160px
   margin-right: 20px
 
   li
     margin: 7px 0
+    a
+      padding: 0 7px
+    h2
+      padding: 7px
+      border-top: 1px solid #333
+      border-bottom: 1px solid #333
+
+.sidebar-news
+  width: 100%
+  background: #272727
+  margin-bottom: 20px
+  color: #848485
+  border-top: 1px solid #333
+  border-bottom: 1px solid #111
+
+  li
+    padding: 10px 20px
+    float: left
+    border-left: 1px solid #333
+    border-right: 1px solid #111
+    &.fill
+      border-right: none
+
+    &.active
+      a
+        color: #A7003C
+        font-weight: bold
+        font-size: 14px
