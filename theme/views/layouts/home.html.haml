@@ -2,7 +2,10 @@
 %html(html_attrs())
   %head= render_partial("layouts/head")
   %body
-    .page-wrapper
+    .page-wrapper.homepage
+      %header.home-header= render_partial("layouts/header")
+        .enter-homepage
+          =link_to("English Site &raquo;", get_page_link(4))
       %section.home-content= yield()
       %footer.site-footer= render_partial("layouts/footer")
       = javascript_include_tag("http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js")

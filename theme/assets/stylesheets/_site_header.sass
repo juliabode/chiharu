@@ -1,4 +1,4 @@
-header.site-header
+header.site-header, header.home-header
   padding: 9px
   color: #fff
 
@@ -13,3 +13,21 @@ header.site-header
 
   h2
     font-size: 15px
+
+header.home-header
+  overflow: hidden
+
+  h1
+    float: left
+
+  .enter-homepage
+    padding: 20px 0
+    float: right
+    font-family: 'Marvel', sans-serif
+    text-transform: uppercase
+    a
+      @include image_border
+      padding: 6px
+      font-size: 24px
+      &:hover
+        color: $chiharu_color_light
