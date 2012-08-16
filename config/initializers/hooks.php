@@ -7,8 +7,8 @@
 function change_default_title( $title ){
      $screen = get_current_screen();
 
-     if  ( 'news' == $screen->post_type ) {
-          $title = 'Enter News Date Here';
+     if  ( 'exhibitions' == $screen->post_type ) {
+          $title = 'Enter Exhibition Date Here';
      }
 
      return $title;

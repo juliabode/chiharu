@@ -3,7 +3,7 @@
 #content
   .wrap.clearfix#inner-content
     .eightcol.first.clearfix#main{:role => "main"}
-      %ul.news
+      %ul.exhibitions
         - while ($loop->have_posts())
           - $loop->the_post()
-          %li= render_partial("posts/news")
+          %li= render_partial("posts/exhibitions")

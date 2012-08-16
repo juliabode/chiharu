@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name: News
+    Template Name: Exhibitions
 */
 
 render_view("static/page_templates"); ?>

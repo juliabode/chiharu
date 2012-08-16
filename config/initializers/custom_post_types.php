@@ -6,7 +6,7 @@ function add_custom_post_types() {
    * function, or the Wordless new_post_type() helper.
    */
 
-   new_post_type("news",        array('title', 'editor'));
+   new_post_type("exhibitions", array('title', 'editor'));
    new_post_type("biography",   array('title', 'editor'));
    new_post_type("works",       array('title', 'editor'));
    new_post_type("press",       array('title', 'editor'));
@@ -19,7 +19,7 @@ function add_custom_taxonomies() {
    * function, or the Wordless new_taxonomy() helper.
    */
 
-   new_taxonomy("year_news", array('news'));
+   new_taxonomy("year_exhibitions", array('exhibitions'));
    new_taxonomy("year_works", array('works'));
    new_taxonomy("biography_steps", array('biography'));
    new_taxonomy("press_type", array('press'));
