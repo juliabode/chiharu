@@ -6,7 +6,7 @@
     display: inline-block
     width: 100%
 
-.exhibitions, .biography
+.exhibitions, .biography, .articles
   width: 940px
   font-size: 13px
 
@@ -41,15 +41,33 @@
     .content
       width: 90%
 
-.press
+.press, .downloads
   li
     border-bottom: 1px solid #333
     margin-bottom: 40px
     &:last-child
       border: none
 
-    h2
+    h3
       @include pink_title
+
+.articles
+  li
+    overflow: hidden
+    margin: 10px 0
+    line-height: 18px
+    font-size: 14px
+    padding-bottom: 10px
+    border-bottom: 1px solid #333
+
+    &:last-child
+      border: none
+
+    header
+      width: 10%
+
+    .content
+      width: 90%
 
 .publication
   .publication-year

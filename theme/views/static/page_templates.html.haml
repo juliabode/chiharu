@@ -2,9 +2,10 @@
 
 - if ($post_type[1] == 'exhibitions')
   - $categories = get_terms( 'year_exhibitions', array( 'order' => 'DESC' ) )
-  - $loop = new WP_Query( array(  'tax_query' => array( array( 'taxonomy' => 'year_exhibitions', 'terms' => $categories[0]->term_id ) ), 'post_type' => $post_type[1], 'posts_per_page' => -1 ) )
+  - $loop = new WP_Query( array( 'tax_query' => array( array( 'taxonomy' => 'year_exhibitions', 'terms' => $categories[0]->term_id ) ), 'post_type' => $post_type[1], 'posts_per_page' => -1 ) )
 - else if ($post_type[1] == 'press')
-  - $loop = new WP_Query( array( 'post_type' => $post_type[1], 'posts_per_page' => -1 ) )
+  - $categories = get_terms( 'press_type', array( 'order' => 'DESC' ) )
+  - $loop = new WP_Query( array( 'tax_query' => array( array( 'taxonomy' => 'press_type', 'terms' => $categories[0]->term_id ) ), 'post_type' => $post_type[1], 'posts_per_page' => -1 ) )
 - else
   - $loop = new WP_Query( array( 'post_type' => $post_type[1], 'posts_per_page' => 1 ) )
 

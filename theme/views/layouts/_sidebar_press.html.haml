@@ -1,0 +1,14 @@
+- $categories = get_terms( 'press_type', array( 'order' => 'DESC' ) )
+
+%ul
+  - $i = 0
+  - foreach ( $categories as $cat )
+    - #todo: better if clause.
+    - if ( ($i == 0 && is_page('press')) || is_tax('press_type', $cat->slug) )
+      - $class = 'active'
+    - else
+      - $class = 'inactive'
+    %li{:class => "#{$class}"}
+      %h2= link_to($cat->name, get_term_link($cat->slug, 'press_type'))
+      - $i++
+  %li.fill= "&nbsp;"
