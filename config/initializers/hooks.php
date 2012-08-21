@@ -55,3 +55,5 @@ function chiharu_register_settings() {
 
 add_action( 'admin_menu', 'chiharu_add_menu' );
 add_action( 'admin_init', 'chiharu_register_settings' );
+
+add_theme_support( 'post-thumbnails' );

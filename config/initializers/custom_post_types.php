@@ -10,7 +10,7 @@ function add_custom_post_types() {
    new_post_type("biography",   array('title', 'editor'));
    new_post_type("works",       array('title', 'editor'));
    new_post_type("press",       array('title', 'editor'));
-   new_post_type("publication", array('title', 'editor'));
+   new_post_type("publication", array('title', 'editor', 'thumbnail'));
 }
 
 function add_custom_taxonomies() {

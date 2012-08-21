@@ -14,5 +14,8 @@
               %ul
                 - while ($loop->have_posts())
                   - $loop->the_post()
-                  %li= render_partial("posts/press")
+                  %li
+                    - if (has_post_thumbnail())
+                      = the_post_thumbnail()
+                    = render_partial("posts/press")
 
