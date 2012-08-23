@@ -9,7 +9,7 @@ header.site-header, header.home-header
 
   h1
     float: left
-    font-family: 'Marvel', sans-serif
+    @include default_header_font
     font-size: 55px
     margin: 5px 10px
 
@@ -28,7 +28,7 @@ header.home-header
   .enter-homepage
     padding: 20px 0
     float: right
-    font-family: 'Marvel', sans-serif
+    @include default_header_font
     text-transform: uppercase
     a
       @include image_border
